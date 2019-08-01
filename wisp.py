@@ -1,9 +1,9 @@
-from flask import Flask
+from flask import Flask, render_template, request
 app = Flask(__name__)
 
 @app.route('/')
 def home_page():
-    return "Here's the home where you vote"
+    return render_template('home.html')
 
 @app.route('/submit', methods=['POST'])
 def submit_vote():
