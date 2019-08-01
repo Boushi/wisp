@@ -1,0 +1,10 @@
+[
+    {
+        "name": "Werewolf",
+        "players": 8
+    },
+    {
+        "name": "Catan",
+        "players": 5
+    }
+]
