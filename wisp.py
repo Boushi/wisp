@@ -2,6 +2,7 @@ import os
 from flask import Flask, render_template, request, url_for, json
 
 games = []
+votes = {}
 
 def create_app():
     app = Flask(__name__)
@@ -18,7 +19,13 @@ def home_page():
 
 @app.route('/submit', methods=['POST'])
 def submit_vote():
-    return request.form
+    for game in request.form:
+        if game in votes:
+            votes[game] = votes[game] + 1
+        else:
+            votes[game] = 1
+
+    return votes
 
 @app.route('/results')
 def results_page():
