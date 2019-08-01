@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, request, url_for, json
+from flask import Flask, redirect, render_template, request, url_for, json
 
 games = []
 votes = {}
@@ -25,11 +25,11 @@ def submit_vote():
         else:
             votes[game] = 1
 
-    return votes
+    return redirect(url_for('results_page'))
 
 @app.route('/results')
 def results_page():
-    return "Results shown here"
+    return render_template('results.html', results=votes)
 
 @app.route('/host')
 def host_page():

@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<head>
+    <title>Results</title>
+</head>
+<ul>
+        {% for game, votes in results.items() %}
+            <li>
+                {{ game }}: {{ votes }}
+            </li>
+        {% endfor %}
+    </ul>
