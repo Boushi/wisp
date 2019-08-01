@@ -1,3 +1,14 @@
 <!DOCTYPE html>
-<title>Home template</title>
-<h1>Look at this home template</h1>
+<head>
+    <title>Tabletop Night</title>
+</head>
+<form action="{{ url_for('submit_vote') }}" method="POST">
+    <ul>
+        {% for game in games %}
+            <li>
+                {{ game.name }}: <input type="checkbox" id="theid" name="{{ game.name }}" value="fill"/>
+            </li>
+        {% endfor %}
+    </ul>
+    <button type="submit">Send</button>
+</form>
